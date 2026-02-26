@@ -1,6 +1,6 @@
-package com.daclink.users;
+package com.Group10.Project02;
 
-import com.daclink.users.Entities.User;
+import com.Group10.Project02.Entities.Users;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,32 +19,32 @@ public class UsersController {
     }
 
     @GetMapping("/users")
-    List<User> all(){
+    List<Users> all(){
         return repository.findAll();
     }
 
     @PostMapping("/users")
-    User newUser(@RequestBody User newUser){
-        return repository.save(newUser);
+    Users newUser(@RequestBody Users newUsers){
+        return repository.save(newUsers);
     }
 
     @GetMapping("/users/{id}")
-    EntityModel<User> one(@PathVariable Long id){
-        User user = repository.findById(id)
+    EntityModel<Users> one(@PathVariable Long id){
+        Users users = repository.findById(id)
                 .orElseThrow( );
 
-        return EntityModel.of(user,
+        return EntityModel.of(users,
                 linkTo(methodOn(UsersController.class).one(id)).withSelfRel(),
                 linkTo(methodOn(UsersController.class).all()).withRel("users"));
     }
 
     @PutMapping("/users/{id}")
-    User replaceUser(@RequestBody User newUser, @PathVariable Long id){
-        return repository.findById(id).map(user -> {
-                user.setUsername(newUser.getUsername());
-                return repository.save(user);
+    Users replaceUser(@RequestBody Users newUsers, @PathVariable Long id){
+        return repository.findById(id).map(users -> {
+                users.setUsername(newUsers.getUsername());
+                return repository.save(users);
             }).orElseGet(() -> {
-            return repository.save(newUser);
+            return repository.save(newUsers);
         });
     }
 }

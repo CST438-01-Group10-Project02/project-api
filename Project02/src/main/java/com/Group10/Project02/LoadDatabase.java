@@ -1,6 +1,6 @@
-package com.daclink.users;
+package com.Group10.Project02;
 
-import com.daclink.users.Entities.User;
+import com.Group10.Project02.Entities.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -14,7 +14,7 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase(UsersRepository repository){
         return args -> {
-            log.info("Preloading " + repository.save(new User("TestUser1")));
+            log.info("Preloading " + repository.save(new Users("TestUser1")));
         };
     }
 }
