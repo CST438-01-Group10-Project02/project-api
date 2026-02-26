@@ -5,8 +5,9 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "events")
 public class Event {
+
+    //Events field
     private @Id
     @GeneratedValue Long id;
     private String Name;

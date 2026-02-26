@@ -17,6 +17,7 @@ class EventController {
         this.repository = repository;
     }
 
+    //get all event data
     @PostMapping("/Events")
     Event newEvent(@RequestBody Event newEvent) {
         return repository.save(newEvent);
@@ -27,6 +28,7 @@ class EventController {
         return repository.findAll();
     }
 
+    // Get event info from user id
     @GetMapping("/events/{id}")
     EntityModel<Event> getEvent(@PathVariable Long id) {
         Event event = repository.findById(id)
