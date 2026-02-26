@@ -1,6 +1,6 @@
 package com.Group10.Project02;
 
-import com.Group10.Project02.entities.Event;
+import com.Group10.Project02.Entities.Event;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.*;
 

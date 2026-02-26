@@ -1,4 +1,4 @@
-package com.Group10.Project02.entities;
+package com.Group10.Project02.Entities;
 
 import jakarta.persistence.*;
 
