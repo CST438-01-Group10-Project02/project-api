@@ -10,13 +10,14 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class LoadDatabase {
+
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
     @Bean
-    CommandLineRunner initDatabase(UsersRepository usersRepository, EventRepository eventRepository){
+    CommandLineRunner initDatabase(UsersRepository usersRepository, EventRepository eventRepository) {
         return args -> {
             log.info("Preloading " + usersRepository.save(new Users("TestUser1")));
-            log.info("Preloading " + repository.save(new Event("Super fun Party", "Name", "my house", "birthday", "3:30", "5:40")));
+            log.info("Preloading " + eventRepository.save(new Event("Super fun Party", "Name", "my house", "birthday", "3:30", "5:40")));
 
         };
     }
