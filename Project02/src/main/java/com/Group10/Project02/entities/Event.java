@@ -16,6 +16,7 @@ public class Event {
     private String StartTime;
     private String EndTime;
 
+    // Constructors
     public Event() {}
 
     public Event(String name, String host, String location, String description, String startTime, String endTime) {
