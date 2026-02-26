@@ -27,6 +27,8 @@ public class Event {
         EndTime = endTime;
     }
 
+    // Setters and Getters
+
     public Long getId() {
         return id;
     }
@@ -83,6 +85,8 @@ public class Event {
         EndTime = endTime;
     }
 
+    // Hash and equals
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -94,6 +98,5 @@ public class Event {
     public int hashCode() {
         return Objects.hash(id, Name, Host, Location, Description, StartTime, EndTime);
     }
-
 
 }
