@@ -1,4 +1,4 @@
-package com.Group10.Project02.Entities;
+package com.daclink.users.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,15 +12,14 @@ public class User {
     @GeneratedValue long id;
     private String username;
 
-    public User(){}
-    public User(String username){
-        this.username = username;
-    }
-
     public long getId() {
         return id;
     }
 
+    public User(){}
+    public User(String username){
+        this.username = username;
+    }
     public void setId(long id) {
         this.id = id;
     }
