@@ -94,4 +94,5 @@ public class Event {
     public int hashCode() {
         return Objects.hash(id, Name, Host, Location, Description, StartTime, EndTime);
     }
+
 }
