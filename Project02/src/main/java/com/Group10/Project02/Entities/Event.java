@@ -17,17 +17,19 @@ public class Event {
     private String Description;
     private String StartTime;
     private String EndTime;
+    private String Date;
 
     // Constructors
     public Event() {}
 
-    public Event(String name, Users host, String location, String description, String startTime, String endTime) {
+    public Event(String name, Users host, String location, String description, String startTime, String endTime, String date) {
         Name = name;
         Host = host;
         Location = location;
         Description = description;
         StartTime = startTime;
         EndTime = endTime;
+        this.Date = date;
     }
 
     // Setters and Getters
@@ -88,18 +90,24 @@ public class Event {
         EndTime = endTime;
     }
 
-    // Hash and equals
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
+// Hash and equals
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
-        return Objects.equals(id, event.id) && Objects.equals(Name, event.Name) && Objects.equals(Host, event.Host) && Objects.equals(Location, event.Location) && Objects.equals(Description, event.Description) && Objects.equals(StartTime, event.StartTime) && Objects.equals(EndTime, event.EndTime);
+        return Objects.equals(id, event.id) && Objects.equals(Name, event.Name) && Objects.equals(Host, event.Host) && Objects.equals(Location, event.Location) && Objects.equals(Description, event.Description) && Objects.equals(StartTime, event.StartTime) && Objects.equals(EndTime, event.EndTime) && Objects.equals(Date, event.Date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, Name, Host, Location, Description, StartTime, EndTime);
+        return Objects.hash(id, Name, Host, Location, Description, StartTime, EndTime, Date);
     }
-
 }
