@@ -37,7 +37,11 @@ class EventController {
     List<Event> getEvents(@RequestParam("hostId") Long id){
         return repository.findByHostId(id);
     }
-
+    @GetMapping(value="/events", params = {"location","hostId"})
+    List<Event> getEvents(@RequestParam("location") String location,
+                     @RequestParam("hostId") Long hostId){
+        return repository.findByLocationAndHostId(location, hostId);
+    }
 
     // Get event info from user id
     @GetMapping("/events/{id}")

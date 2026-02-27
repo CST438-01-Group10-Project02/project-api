@@ -12,4 +12,7 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 
     @Query("select e from Event e where e.Host.id = ?1")
     List<Event> findByHostId(Long id);
+
+    @Query("select e from Event e where e.Location = ?1 and e.Host.id = ?2")
+    List<Event> findByLocationAndHostId(String location, Long id);
 }
