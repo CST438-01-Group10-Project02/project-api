@@ -11,7 +11,8 @@ public class Event {
     private @Id
     @GeneratedValue Long id;
     private String Name;
-    private String Host;
+    @ManyToOne
+    private Users Host;
     private String Location;
     private String Description;
     private String StartTime;
@@ -20,7 +21,7 @@ public class Event {
     // Constructors
     public Event() {}
 
-    public Event(String name, String host, String location, String description, String startTime, String endTime) {
+    public Event(String name, Users host, String location, String description, String startTime, String endTime) {
         Name = name;
         Host = host;
         Location = location;
@@ -47,11 +48,11 @@ public class Event {
         Name = name;
     }
 
-    public String getHost() {
+    public Users getHost() {
         return Host;
     }
 
-    public void setHost(String host) {
+    public void setHost(Users host) {
         Host = host;
     }
 
