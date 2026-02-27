@@ -37,6 +37,10 @@ public class UsersController {
                 linkTo(methodOn(UsersController.class).one(id)).withSelfRel(),
                 linkTo(methodOn(UsersController.class).all()).withRel("users"));
     }
+    @GetMapping(value="/users", params = "username")
+    List<Users> getUsers(@RequestParam("username") String username){
+        return repository.findByUsername(username);
+    }
 
     @PutMapping("/users/{id}")
     Users replaceUser(@RequestBody Users newUsers, @PathVariable Long id){
