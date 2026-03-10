@@ -1,6 +1,11 @@
+FROM eclipse-temurin:25-jdk AS build
+WORKDIR /src
+COPY . .
+RUN chmod +x ./gradlew && ./gradlew clean build --no-daemon
+
 FROM eclipse-temurin:25-jre
 WORKDIR /app
-COPY build/libs/*.jar app.jar
+COPY --from=build /src/build/libs/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
