@@ -1,12 +1,17 @@
 FROM eclipse-temurin:25-jdk AS build
 WORKDIR /src
 COPY . .
-RUN chmod +x ./gradlew && ./gradlew clean build --no-daemon
+RUN sed -i 's/\r$//' gradlew && chmod +x gradlew \
+    && ./gradlew clean build --no-daemon \
 
 FROM eclipse-temurin:25-jre
+
 WORKDIR /app
+
 COPY --from=build /src/build/libs/*.jar app.jar
+
 EXPOSE 8080
+
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
 # HOW TO RUN - in terminal
