@@ -13,4 +13,4 @@ ENTRYPOINT ["java","-jar","app.jar"]
 # STEP 1: "docker build -t your-image-name . "
 # STEP 2: "docker run -p 8080:8080 your-image-name"
 
-# Make sure you are in the Project02 directory...
+# Make sure you are in the Project02 directory... a
