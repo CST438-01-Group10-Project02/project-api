@@ -10,26 +10,26 @@ public class Event {
     //Events field
     private @Id
     @GeneratedValue Long id;
-    private String Name;
+    private String name;
     @ManyToOne
-    private Users Host;
-    private String Location;
-    private String Description;
-    private String StartTime;
-    private String EndTime;
-    private String Date;
+    private Users host;
+    private String location;
+    private String description;
+    private String startTime;
+    private String endTime;
+    private String date;
 
     // Constructors
     public Event() {}
 
     public Event(String name, Users host, String location, String description, String startTime, String endTime, String date) {
-        Name = name;
-        Host = host;
-        Location = location;
-        Description = description;
-        StartTime = startTime;
-        EndTime = endTime;
-        this.Date = date;
+        this.name = name;
+        this.host = host;
+        this.location = location;
+        this.description = description;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.date = date;
     }
 
     // Setters and Getters
@@ -43,59 +43,59 @@ public class Event {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public Users getHost() {
-        return Host;
+        return host;
     }
 
     public void setHost(Users host) {
-        Host = host;
+        this.host = host;
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setLocation(String location) {
-        Location = location;
+        this.location = location;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getStartTime() {
-        return StartTime;
+        return startTime;
     }
 
     public void setStartTime(String startTime) {
-        StartTime = startTime;
+        this.startTime = startTime;
     }
 
     public String getEndTime() {
-        return EndTime;
+        return endTime;
     }
 
     public void setEndTime(String endTime) {
-        EndTime = endTime;
+        this.endTime = endTime;
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String date) {
-        Date = date;
+        this.endTime = date;
     }
 // Hash and equals
 
@@ -103,11 +103,11 @@ public class Event {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
-        return Objects.equals(id, event.id) && Objects.equals(Name, event.Name) && Objects.equals(Host, event.Host) && Objects.equals(Location, event.Location) && Objects.equals(Description, event.Description) && Objects.equals(StartTime, event.StartTime) && Objects.equals(EndTime, event.EndTime) && Objects.equals(Date, event.Date);
+        return Objects.equals(id, event.id) && Objects.equals(name, event.name) && Objects.equals(host, event.host) && Objects.equals(location, event.location) && Objects.equals(description, event.description) && Objects.equals(startTime, event.startTime) && Objects.equals(endTime, event.endTime) && Objects.equals(date, event.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, Name, Host, Location, Description, StartTime, EndTime, Date);
+        return Objects.hash(id, name, host, location, description, startTime, endTime, date);
     }
 }
