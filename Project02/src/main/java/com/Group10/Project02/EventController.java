@@ -27,7 +27,7 @@ class EventController {
     }
 
     //get all event data
-    @PostMapping("/Events")
+    @PostMapping("/events")
     Event newEvent(@RequestBody Event newEvent) {
         return repository.save(newEvent);
     }
