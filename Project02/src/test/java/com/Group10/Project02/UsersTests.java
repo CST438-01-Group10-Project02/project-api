@@ -71,7 +71,7 @@ public class UsersTests {
 
         // Change back
         mvc.perform(put("/users/{id}", 1L).contentType(MediaType.APPLICATION_JSON).content("{\"username\":\"TestUser1\"}"))
-                .andExpect(jsonPath("$.username").value("TestPostUser"))
+                .andExpect(jsonPath("$.username").value("TestUser1"))
                 .andExpect(jsonPath("$.id").value(1));
     }
 
