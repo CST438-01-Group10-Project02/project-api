@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Group10.Project02.Entities.Event;
+import com.Group10.Project02.Entities.Users;
 
 @RestController
 class EventController {
@@ -101,7 +102,30 @@ class EventController {
     @PutMapping("/events/{id}")
     Event replaceEvent(@PathVariable Long id, @RequestBody Event newEvent) {
         return repository.findById(id).map(event -> {
-            event.setName(newEvent.getName());
+            if (newEvent.getName() != null) {
+                event.setName(newEvent.getName());
+            }
+
+            if (newEvent.getLocation() != null) {
+                event.setLocation(newEvent.getLocation());
+            }
+
+            if (newEvent.getDescription() != null) {
+                event.setDescription(newEvent.getDescription());
+            }
+
+            if (newEvent.getStartTime() != null) {
+                event.setStartTime(newEvent.getStartTime());
+            }
+
+            if (newEvent.getEndTime() != null) {
+                event.setEndTime(newEvent.getEndTime());
+            }
+
+            if (newEvent.getDate() != null) {
+                event.setDate(newEvent.getDate());
+            }
+
             return repository.save(event);
         }).orElseGet(() -> {
             return repository.save(newEvent);
