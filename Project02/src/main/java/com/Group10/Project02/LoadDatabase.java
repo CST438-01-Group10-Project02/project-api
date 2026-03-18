@@ -17,8 +17,8 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(UsersRepository usersRepository, EventRepository eventRepository) {
         return args -> {
             log.info("Preloading " + usersRepository.save(new Users("TestUser1", "TestUser1@Test.com")));
-            log.info("Preloading " + eventRepository.save(new Event("Super fun party", usersRepository.findById(1L).orElseThrow(), "my house", "birthday", "3:30", "5:40", "02-26-2026")));
-            log.info("Preloading " + eventRepository.save(new Event("Come have fun", usersRepository.findById(1L).orElseThrow(), "Test", "You'll enjoy it", "now", "forever", "01-01-01")));
+            log.info("Preloading " + eventRepository.save(new Event("Super fun party", 1L, "my house", "birthday", "3:30", "5:40", "02-26-2026")));
+            log.info("Preloading " + eventRepository.save(new Event("Come have fun", 1L, "Test", "You'll enjoy it", "now", "forever", "01-01-01")));
         };
     }
 }
