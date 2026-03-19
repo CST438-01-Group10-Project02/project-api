@@ -56,7 +56,7 @@ public class UsersTests {
 
     @Test
     void testPostUser() throws Exception {
-        Users testPostUser = new Users("TestPostUser");
+        Users testPostUser = new Users("TestPostUser", "TestPostUser@Test.com");
 
         mvc.perform(post("/users").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(testPostUser)))
                 .andExpect(jsonPath("$.username").value(testPostUser.getUsername()))

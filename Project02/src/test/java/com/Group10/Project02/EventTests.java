@@ -50,7 +50,7 @@ public class EventTests {
         // Should get a list of events where hostId=1 and location="Test"
         mvc.perform(get("/events").param("hostId", "1").param("location", "Test"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].host.id").value(1))
+                .andExpect(jsonPath("$[0].hostId").value(1))
                 .andExpect(jsonPath("$[0].location").value("Test"));
     }
     @Test
