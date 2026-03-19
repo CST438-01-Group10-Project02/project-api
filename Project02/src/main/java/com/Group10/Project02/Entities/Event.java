@@ -11,8 +11,7 @@ public class Event {
     private @Id
     @GeneratedValue Long id;
     private String name;
-    @ManyToOne
-    private Users host;
+    private Long hostId;
     private String location;
     private String description;
     private String startTime;
@@ -22,9 +21,9 @@ public class Event {
     // Constructors
     public Event() {}
 
-    public Event(String name, Users host, String location, String description, String startTime, String endTime, String date) {
+    public Event(String name, Long hostId, String location, String description, String startTime, String endTime, String date) {
         this.name = name;
-        this.host = host;
+        this.hostId = hostId;
         this.location = location;
         this.description = description;
         this.startTime = startTime;
@@ -50,12 +49,12 @@ public class Event {
         this.name = name;
     }
 
-    public Users getHost() {
-        return host;
+    public Long getHostId() {
+        return hostId;
     }
 
-    public void setHost(Users host) {
-        this.host = host;
+    public void setHostId(Long hostId) {
+        this.hostId = hostId;
     }
 
     public String getLocation() {
@@ -103,11 +102,11 @@ public class Event {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Event event = (Event) o;
-        return Objects.equals(id, event.id) && Objects.equals(name, event.name) && Objects.equals(host, event.host) && Objects.equals(location, event.location) && Objects.equals(description, event.description) && Objects.equals(startTime, event.startTime) && Objects.equals(endTime, event.endTime) && Objects.equals(date, event.date);
+        return Objects.equals(id, event.id) && Objects.equals(name, event.name) && Objects.equals(hostId, event.hostId) && Objects.equals(location, event.location) && Objects.equals(description, event.description) && Objects.equals(startTime, event.startTime) && Objects.equals(endTime, event.endTime) && Objects.equals(date, event.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, host, location, description, startTime, endTime, date);
+        return Objects.hash(id, name, hostId, location, description, startTime, endTime, date);
     }
 }
