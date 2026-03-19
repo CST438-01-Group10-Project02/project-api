@@ -31,6 +31,14 @@ public class Users {
         this.id = id;
     }
 
+    public String getAuthId() {
+        return authId;
+    }
+
+    public void setAuthId(String authId) {
+        this.authId = authId;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -42,6 +50,7 @@ public class Users {
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -57,7 +66,7 @@ public class Users {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username);
+        return Objects.hash(id, authId, username, email, role, bio);
     }
 
     @Override
