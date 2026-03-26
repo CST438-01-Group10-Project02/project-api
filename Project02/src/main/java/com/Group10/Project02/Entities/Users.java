@@ -2,6 +2,7 @@ package com.Group10.Project02.Entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -9,12 +10,21 @@ import jakarta.persistence.Id;
 @Entity
 public class Users {
 
-    private @Id
+    @Id
     @GeneratedValue
-    long id;
+    private long id;
+
     private String username;
     private String email;
 
+    @Column(name = "auth_id")
+    private String authId;
+
+    @Column(name = "role")
+    private String role;
+
+    @Column(name = "bio")
+    private String bio;
 
     public Users() {
     }
@@ -23,6 +33,7 @@ public class Users {
         this.username = username;
         this.email = email;
     }
+
     public long getId() {
         return id;
     }
@@ -55,26 +66,48 @@ public class Users {
         this.email = email;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
-        return id == users.id && Objects.equals(username, users.username) && Objects.equals(email, users.email);
+        return id == users.id
+                && Objects.equals(username, users.username)
+                && Objects.equals(email, users.email)
+                && Objects.equals(authId, users.authId)
+                && Objects.equals(role, users.role)
+                && Objects.equals(bio, users.bio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, authId, username, email, role, bio);
+        return Objects.hash(id, username, email, authId, role, bio);
     }
 
     @Override
     public String toString() {
-        return "User{"
-                + "id=" + id
-                + ", username='" + username + '\''
-                + ", email='" + email + '\''
-                + '}';
+        return "Users{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", authId='" + authId + '\'' +
+                ", role='" + role + '\'' +
+                ", bio='" + bio + '\'' +
+                '}';
     }
 }
